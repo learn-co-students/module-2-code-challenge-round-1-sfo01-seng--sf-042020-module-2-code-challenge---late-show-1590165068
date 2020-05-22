@@ -1,0 +1,36 @@
+<%= form_for @appearance do |f| %>
+  <% if flash[:error] %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(flash[:error].count, "error") %>
+        prohibited this post from being saved:
+      </h2>
+      <ul>
+      <% flash[:error].each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rating %>
+    <%= f.number_field :rating %>
+    <br>
+    
+  </div>
+
+  <div class="field">
+    <%= f.collection_select :guest_id, @guests, :id, :name, {include_blank: 'Select a guest'} %>
+    <br>
+  </div>
+
+  <div class="field">
+    <%= f.collection_select :episode_id, @episodes, :id, :number, {include_blank: 'Select an episode number'} %>
+    <br>
+  </div>
+
+  <div class="action">
+    <%= f.submit%>
+  </div>
+<% end  %>

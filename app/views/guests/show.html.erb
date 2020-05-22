@@ -1,0 +1,16 @@
+<h2><%= @guest.name %></h2>
+<p>Occupation: <%= @guest.occupation %></p>
+
+<h3>Appearances</h3>
+
+<ol>
+  <% sorted_appearances = @guest.appearances.sort_by { |a| a.rating }.reverse! %>
+  <% sorted_appearances.each do |appearance| %>
+    <li><%= link_to "Episode: #{appearance.episode.number}", appearance.episode %></li>
+    <ul>
+      <li>Rating: <%= appearance.rating %></li>
+      <li>Date: <%= appearance.episode.date %></li>
+    </ul>
+      
+  <% end  %>
+</ol>
