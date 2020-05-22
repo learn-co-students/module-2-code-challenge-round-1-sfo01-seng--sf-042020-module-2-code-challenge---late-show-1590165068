@@ -1,0 +1,11 @@
+
+<%= form_for @guest do |f| %>
+    <%= f.select :guest_id, Guest.all.collect { |g| [ g.name, g.id ] }, include_blank: true %>
+    <%= f.submit %>
+<% end %>
+
+
+<%= form_for @episode do |f| %>
+    <%= f.select :episode_id, Episode.all.collect { |e| [ e.number, e.id ] }, include_blank: true %>
+    <%= f.submit %>
+<% end %>
