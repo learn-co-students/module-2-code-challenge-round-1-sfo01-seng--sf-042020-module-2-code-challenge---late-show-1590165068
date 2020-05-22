@@ -5,5 +5,6 @@ class Episode < ApplicationRecord
   def average_rating
     ratings = self.appearances.map {|a| a.rating}
     ratings.inject{ |sum, el| sum + el }.to_f / ratings.size
+    
   end
 end
